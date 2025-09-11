@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrioMart - Fresh Fruits & Vegetables Online</title>
+    <!-- Added Google Fonts for enhanced typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        /* Updated typography to use design brief fonts */
+        font-family: "Source Sans Pro", "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
+        line-height: 1.6;
+        color: #374151;
+        overflow-x: hidden;
+      }
+
+      /* Enhanced header with sophisticated styling and better scroll effects */
+      header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        color: #15803d;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-bottom: 2px solid transparent;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      header.scrolled {
+        background: rgba(21, 128, 61, 0.98);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(21, 128, 61, 0.2);
+        border-bottom: 2px solid #84cc16;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        /* Enhanced logo with Playfair Display font */
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: #15803d;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-shadow: 0 2px 4px rgba(21, 128, 61, 0.1);
+      }
+
+      header.scrolled .logo {
+        color: white;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        color: #15803d;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        position: relative;
+        transition: all 0.3s ease;
+        padding: 0.5rem 0;
+      }
+
+      /* Added sophisticated hover effects for navigation */
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #84cc16, #fbbf24);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      header.scrolled .nav-links a {
+        color: white;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .mobile-menu span {
+        width: 25px;
+        height: 3px;
+        background: #15803d;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      header.scrolled .mobile-menu span {
+        background: white;
+      }
+
+      /* Completely redesigned hero section with parallax and advanced styling */
+      .hero {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(240, 253, 244, 0.9) 100%
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:1" /><stop offset="100%" style="stop-color:%23f0fdf4;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23bg)" width="1200" height="600"/><circle fill="%23fbbf24" cx="200" cy="150" r="40" opacity="0.6"/><circle fill="%23d97706" cx="400" cy="200" r="35" opacity="0.7"/><circle fill="%23fbbf24" cx="600" cy="120" r="45" opacity="0.5"/><circle fill="%2315803d" cx="800" cy="180" r="30" opacity="0.8"/><circle fill="%2384cc16" cx="1000" cy="140" r="38" opacity="0.6"/><path fill="%2315803d" d="M0,400 Q300,350 600,400 T1200,400 L1200,600 L0,600 Z" opacity="0.1"/></svg>');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #374151;
+        padding: 0 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Enhanced floating animations with more sophisticated 3D fruits */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: -3%;
+        width: 120px;
+        height: 120px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="orange" cx="30%" cy="30%"><stop offset="0%" style="stop-color:%23fbbf24"/><stop offset="100%" style="stop-color:%23d97706"/></radialGradient></defs><circle fill="url(%23orange)" cx="50" cy="50" r="35"/><ellipse fill="%2315803d" cx="50" cy="20" rx="8" ry="15"/><path fill="%2315803d" d="M45,15 Q50,10 55,15 L55,25 L45,25 Z"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 8s ease-in-out infinite;
+        opacity: 0.4;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 60%;
+        right: -2%;
+        width: 100px;
+        height: 100px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="banana" cx="40%" cy="30%"><stop offset="0%" style="stop-color:%23fbbf24"/><stop offset="100%" style="stop-color:%23f59e0b"/></radialGradient></defs><path fill="url(%23banana)" d="M30,70 Q20,40 30,20 Q40,15 50,20 Q60,15 70,20 Q80,40 70,70 Q60,75 50,70 Q40,75 30,70 Z"/><path fill="%2315803d" d="M40,25 Q50,20 60,25 L60,35 L40,35 Z"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 10s ease-in-out infinite reverse;
+        opacity: 0.4;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+      }
+
+      .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        gap: 4rem;
+        padding-top: 80px;
+      }
+
+      .hero-content {
+        flex: 1;
+        text-align: left;
+        max-width: 550px;
+      }
+
+      .hero-content h1 {
+        /* Enhanced typography with Playfair Display */
+        font-family: "Playfair Display", serif;
+        font-size: 4rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        color: #15803d;
+        line-height: 1.1;
+        text-shadow: 0 2px 4px rgba(21, 128, 61, 0.1);
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero-content p {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+        color: #374151;
+        font-weight: 400;
+        line-height: 1.6;
+        animation: fadeInUp 1s ease 0.2s both;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease 0.4s both;
+      }
+
+      .hero-phone {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 400px;
+      }
+
+      /* Enhanced phone mockup with premium styling */
+      .phone-mockup {
+        position: relative;
+        width: 300px;
+        height: 600px;
+        background: linear-gradient(145deg, #15803d, #166534);
+        border-radius: 35px;
+        padding: 25px;
+        box-shadow: 0 25px 50px rgba(21, 128, 61, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.1);
+        animation: fadeInUp 1s ease 0.6s both;
+        transform-style: preserve-3d;
+      }
+
+      .phone-mockup::before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+      }
+
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .phone-content {
+        text-align: center;
+        padding: 2.5rem;
+      }
+
+      .phone-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        color: #15803d;
+        margin-bottom: 1.5rem;
+        font-weight: 900;
+      }
+
+      .phone-text {
+        color: #374151;
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.5;
+      }
+
+      /* Enhanced Android badge with gradient and better styling */
+      .android-badge {
+        background: linear-gradient(135deg, #84cc16, #65a30d);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(132, 204, 22, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .android-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(132, 204, 22, 0.4);
+      }
+
+      /* Enhanced button styling with gradients and better hover effects */
+      .btn {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #d97706, #f59e0b);
+        color: white;
+        box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #b45309, #d97706);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #15803d;
+        border: 2px solid #15803d;
+        box-shadow: 0 4px 15px rgba(21, 128, 61, 0.1);
+      }
+
+      .btn-secondary:hover {
+        background: #15803d;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(21, 128, 61, 0.3);
+      }
+
+      /* Enhanced section styling with better backgrounds and floating elements */
+      .about {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about::before {
+        content: "";
+        position: absolute;
+        top: 20%;
+        left: -2%;
+        width: 80px;
+        height: 80px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="apple" cx="40%" cy="30%"><stop offset="0%" style="stop-color:%23fbbf24"/><stop offset="100%" style="stop-color:%23dc2626"/></radialGradient></defs><circle fill="url(%23apple)" cx="50" cy="55" r="30"/><path fill="%2315803d" d="M45,25 Q50,20 55,25 L55,40 L45,40 Z"/><path fill="%2315803d" d="M40,30 Q45,25 50,30"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 9s ease-in-out infinite;
+        opacity: 0.3;
+      }
+
+      .about::after {
+        content: "";
+        position: absolute;
+        bottom: 15%;
+        right: -1%;
+        width: 90px;
+        height: 90px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="grape" cx="50%" cy="30%"><stop offset="0%" style="stop-color:%2384cc16"/><stop offset="100%" style="stop-color:%2315803d"/></radialGradient></defs><circle fill="url(%23grape)" cx="50" cy="30" r="8"/><circle fill="url(%23grape)" cx="40" cy="40" r="8"/><circle fill="url(%23grape)" cx="60" cy="40" r="8"/><circle fill="url(%23grape)" cx="35" cy="52" r="8"/><circle fill="url(%23grape)" cx="50" cy="52" r="8"/><circle fill="url(%23grape)" cx="65" cy="52" r="8"/><circle fill="url(%23grape)" cx="42" cy="64" r="8"/><circle fill="url(%23grape)" cx="58" cy="64" r="8"/><circle fill="url(%23grape)" cx="50" cy="76" r="8"/><path fill="%2315803d" d="M45,15 Q50,10 55,15 L55,25 L45,25 Z"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 11s ease-in-out infinite reverse;
+        opacity: 0.3;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section-title {
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 4rem;
+        color: #15803d;
+        text-shadow: 0 2px 4px rgba(21, 128, 61, 0.1);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #2e7d32;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      /* Enhanced feature cards with premium styling */
+      .feature-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 0 10px 30px rgba(21, 128, 61, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #84cc16, #fbbf24);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(21, 128, 61, 0.2);
+      }
+
+      .feature-card:hover::before {
+        opacity: 0.05;
+      }
+
+      .feature-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      /* Enhanced process section with sophisticated styling */
+      .process {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .process::before {
+        content: "";
+        position: absolute;
+        top: 10%;
+        left: 2%;
+        width: 110px;
+        height: 110px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="pineapple" cx="50%" cy="30%"><stop offset="0%" style="stop-color:%23fbbf24"/><stop offset="100%" style="stop-color:%23f59e0b"/></radialGradient></defs><ellipse fill="url(%23pineapple)" cx="50" cy="60" rx="25" ry="30"/><path fill="%2315803d" d="M35,30 L40,35 L45,25 L50,35 L55,25 L60,35 L65,30 L60,20 L55,25 L50,15 L45,25 L40,15 L35,20 Z"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 12s ease-in-out infinite;
+        opacity: 0.25;
+      }
+
+      .process::after {
+        content: "";
+        position: absolute;
+        bottom: 20%;
+        right: 3%;
+        width: 95px;
+        height: 95px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="carrot" cx="30%" cy="20%"><stop offset="0%" style="stop-color:%23f59e0b"/><stop offset="100%" style="stop-color:%23d97706"/></radialGradient></defs><path fill="url(%23carrot)" d="M50,80 Q40,70 35,50 Q40,30 50,20 Q60,30 65,50 Q60,70 50,80 Z"/><path fill="%2315803d" d="M45,25 L48,15 L52,25 L55,15 L58,25 L52,20 L48,20 Z"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 10s ease-in-out infinite reverse;
+        opacity: 0.25;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .step {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Enhanced step numbers with gradient backgrounds */
+      .step-number {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #84cc16, #65a30d);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 8px 20px rgba(132, 204, 22, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .step:hover .step-number {
+        transform: scale(1.1);
+        box-shadow: 0 12px 30px rgba(132, 204, 22, 0.4);
+      }
+
+      .step h3 {
+        margin-bottom: 1rem;
+        color: #2e7d32;
+      }
+
+      /* Enhanced app download section with premium gradient */
+      .app-download {
+        background: linear-gradient(
+          135deg,
+          #fbbf24 0%,
+          #f59e0b 50%,
+          #d97706 100%
+        );
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .app-download::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle fill="white" cx="20" cy="20" r="2"/><circle fill="white" cx="80" cy="30" r="1.5"/><circle fill="white" cx="60" cy="70" r="2.5"/><circle fill="white" cx="30" cy="80" r="1"/><circle fill="white" cx="90" cy="60" r="2"/></svg>');
+      }
+
+      .app-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .app-btn {
+        background: #2e7d32;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .app-btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* Enhanced contact section with floating elements */
+      .contact {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        top: 25%;
+        left: 1%;
+        width: 85px;
+        height: 85px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="strawberry" cx="50%" cy="30%"><stop offset="0%" style="stop-color:%23fbbf24"/><stop offset="100%" style="stop-color:%23dc2626"/></radialGradient></defs><path fill="url(%23strawberry)" d="M50,75 Q35,65 30,45 Q35,25 50,20 Q65,25 70,45 Q65,65 50,75 Z"/><circle fill="%23fbbf24" cx="40" cy="35" r="2"/><circle fill="%23fbbf24" cx="55" cy="40" r="2"/><circle fill="%23fbbf24" cx="45" cy="50" r="2"/><circle fill="%23fbbf24" cx="60" cy="55" r="2"/><path fill="%2315803d" d="M40,25 L45,15 L50,25 L55,15 L60,25 L55,20 L45,20 Z"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 13s ease-in-out infinite;
+        opacity: 0.2;
+      }
+
+      .contact::after {
+        content: "";
+        position: absolute;
+        bottom: 10%;
+        right: 2%;
+        width: 105px;
+        height: 105px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="watermelon" cx="50%" cy="40%"><stop offset="0%" style="stop-color:%23fbbf24"/><stop offset="70%" style="stop-color:%23dc2626"/><stop offset="100%" style="stop-color:%2315803d"/></radialGradient></defs><path fill="url(%23watermelon)" d="M20,70 Q50,30 80,70 Q70,80 50,75 Q30,80 20,70 Z"/><circle fill="%23000" cx="35" cy="55" r="2"/><circle fill="%23000" cx="50" cy="50" r="2"/><circle fill="%23000" cx="65" cy="55" r="2"/><circle fill="%23000" cx="42" cy="65" r="2"/><circle fill="%23000" cx="58" cy="65" r="2"/></svg>');
+        background-size: contain;
+        animation: sophisticatedFloat 8s ease-in-out infinite reverse;
+        opacity: 0.2;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+      }
+
+      /* Enhanced contact form with premium styling */
+      .contact-form {
+        background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 0 15px 35px rgba(21, 128, 61, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-form::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #84cc16, #fbbf24);
+        opacity: 0.02;
+        z-index: -1;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #2e7d32;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #ff8f00;
+      }
+
+      .contact-info {
+        padding: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: #2e7d32;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+
+      /* Footer */
+      footer {
+        background: #2e7d32;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      /* Enhanced animations with more sophisticated movement */
+      @keyframes sophisticatedFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+        25% {
+          transform: translateY(-15px) rotate(3deg) scale(1.05);
+        }
+        50% {
+          transform: translateY(-25px) rotate(0deg) scale(1.1);
+        }
+        75% {
+          transform: translateY(-15px) rotate(-3deg) scale(1.05);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 1rem 0;
+          border-top: 2px solid #2e7d32;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .mobile-menu {
+          display: flex;
+        }
+
+        .hero {
+          height: auto;
+          padding: 2rem 1rem;
+          text-align: center;
+        }
+
+        .hero-container {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .hero-content {
+          text-align: center;
+          max-width: 100%;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-content p {
+          font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .phone-mockup {
+          width: 220px;
+          height: 440px;
+          padding: 15px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <a href="#" class="logo"
+          ><img src="./image.png" alt="" height="40"
+        /></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>Fresh Fruits & Vegetables</h1>
+          <p>
+            Delivered fresh to your doorstep. Quality produce, unbeatable
+            prices, and convenience at your fingertips.
+          </p>
+          <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Order Now</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-phone">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="phone-content">
+                <div class="phone-logo">
+                  <img src="./image.png" alt="" height="80" srcset="" />
+                </div>
+                <div class="phone-text">
+                  Fresh Fruits & Vegetables at Your Fingertips
+                </div>
+                <div class="android-badge">
+                  <span>📱</span>
+                  Available on Android
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title">Why Choose TrioMart?</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <h3>Farm Fresh Quality</h3>
+            <p>
+              We source our fruits and vegetables directly from local farms,
+              ensuring you get the freshest produce with maximum nutritional
+              value. Our commitment to quality means every item is carefully
+              selected and inspected.
+            </p>
+            <p>
+              With TrioMart, you're not just buying groceries – you're investing
+              in your health and supporting local agriculture.
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="./image.png"
+              alt="Fresh produce display"
+              style="width: 100%; border-radius: 15px"
+            />
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>
+              Same-day delivery available. Get your fresh produce delivered
+              within hours of ordering.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>100% Organic</h3>
+            <p>
+              All our products are certified organic, grown without harmful
+              pesticides or chemicals.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Best Prices</h3>
+            <p>
+              Competitive pricing with regular discounts and offers. Quality
+              doesn't have to be expensive.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Easy Ordering</h3>
+            <p>
+              User-friendly mobile app makes ordering quick and convenient. Shop
+              anytime, anywhere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Browse & Select</h3>
+            <p>
+              Browse our wide selection of fresh fruits and vegetables. Add your
+              favorites to the cart with just a tap.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Choose Delivery</h3>
+            <p>
+              Select your preferred delivery time slot. We offer same-day and
+              next-day delivery options.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Secure Payment</h3>
+            <p>
+              Pay securely using multiple payment options including cards,
+              digital wallets, and cash on delivery.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Fresh Delivery</h3>
+            <p>
+              Receive your fresh produce at your doorstep, carefully packed to
+              maintain quality and freshness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-download">
+      <div class="container">
+        <h2>Download Our Mobile App</h2>
+        <p>
+          Get the TrioMart app for the best shopping experience. Available now
+          on Android!
+        </p>
+        <div class="app-buttons">
+          <a href="#" class="app-btn">
+            <span style="font-size: 2rem">📱</span>
+            <div>
+              <div style="font-size: 0.8rem">Get it on</div>
+              <div style="font-size: 1.2rem; font-weight: bold">
+                Google Play
+              </div>
+            </div>
+          </a>
+          <a href="#" class="app-btn">
+            <span style="font-size: 2rem">🍎</span>
+            <div>
+              <div style="font-size: 0.8rem">Coming Soon on</div>
+              <div style="font-size: 1.2rem; font-weight: bold">App Store</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+          <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                Send Message
+              </button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>Address</h4>
+                <p>123 Fresh Market Street<br />Green Valley, GV 12345</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <p>hello@triomart.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕒</div>
+              <div>
+                <h4>Hours</h4>
+                <p>Mon-Sun: 6:00 AM - 10:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2024 TrioMart. All rights reserved. | Fresh Fruits & Vegetables
+          Delivered Daily
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenu = document.getElementById("mobileMenu");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+          // Close mobile menu after clicking
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Contact form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const name = formData.get("name");
+          const email = formData.get("email");
+          const phone = formData.get("phone");
+          const message = formData.get("message");
+
+          // Simple validation
+          if (!name || !email || !message) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+
+          // Simulate form submission
+          alert(
+            `Thank you, ${name}! Your message has been sent. We'll get back to you soon.`
+          );
+          this.reset();
+        });
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        const scrolled = window.scrollY > 50;
+
+        if (scrolled) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".hero");
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+
+      // Animate elements on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(".feature-card, .step, .contact-item")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
