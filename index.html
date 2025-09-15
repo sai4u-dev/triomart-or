@@ -29,8 +29,8 @@
       header {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
-        color: #15803d;
-        padding: 1rem 0;
+        color: #000000;
+        padding: 0.2rem 0;
         position: fixed;
         width: 100%;
         top: 0;
@@ -44,7 +44,7 @@
         background: rgba(21, 128, 61, 0.98);
         backdrop-filter: blur(15px);
         box-shadow: 0 8px 32px rgba(21, 128, 61, 0.2);
-        border-bottom: 2px solid #84cc16;
+        border-bottom: 2px solid #82847f;
       }
 
       nav {
@@ -53,7 +53,7 @@
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 1rem;
       }
 
       .logo {
@@ -61,7 +61,7 @@
         font-family: "Playfair Display", serif;
         font-size: 2.2rem;
         font-weight: 900;
-        color: #15803d;
+        color: #000000;
         text-decoration: none;
         transition: all 0.3s ease;
         text-shadow: 0 2px 4px rgba(21, 128, 61, 0.1);
@@ -79,7 +79,7 @@
       }
 
       .nav-links a {
-        color: #15803d;
+        color: #000000;
         text-decoration: none;
         font-weight: 600;
         font-size: 1.05rem;
@@ -105,7 +105,7 @@
       }
 
       header.scrolled .nav-links a {
-        color: white;
+        color: rgb(0, 0, 0);
       }
 
       .mobile-menu {
@@ -200,7 +200,7 @@
         font-size: 4rem;
         font-weight: 900;
         margin-bottom: 1.5rem;
-        color: #15803d;
+        color: #00f95b;
         line-height: 1.1;
         text-shadow: 0 2px 4px rgba(21, 128, 61, 0.1);
         animation: fadeInUp 1s ease;
@@ -209,7 +209,7 @@
       .hero-content p {
         font-size: 1.4rem;
         margin-bottom: 2.5rem;
-        color: #374151;
+        color: #002156;
         font-weight: 400;
         line-height: 1.6;
         animation: fadeInUp 1s ease 0.2s both;
@@ -253,7 +253,7 @@
         transform: translateX(-50%);
         width: 60px;
         height: 6px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(17, 17, 17, 0.3);
         border-radius: 3px;
       }
 
@@ -268,7 +268,7 @@
         justify-content: center;
         position: relative;
         overflow: hidden;
-        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 2px 10px rgb(56, 255, 2);
       }
 
       .phone-content {
@@ -279,13 +279,13 @@
       .phone-logo {
         font-family: "Playfair Display", serif;
         font-size: 2.2rem;
-        color: #15803d;
+        color: #00ff5e;
         margin-bottom: 1.5rem;
         font-weight: 900;
       }
 
       .phone-text {
-        color: #374151;
+        color: #001a44;
         font-size: 1.1rem;
         margin-bottom: 2.5rem;
         line-height: 1.5;
@@ -347,7 +347,7 @@
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, #d97706, #f59e0b);
+        background: linear-gradient(135deg, #ff8800, #f59e0b);
         color: white;
         box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
       }
@@ -355,18 +355,18 @@
       .btn-primary:hover {
         background: linear-gradient(135deg, #b45309, #d97706);
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+        box-shadow: 0 8px 25px rgba(255, 136, 0, 0.4);
       }
 
       .btn-secondary {
         background: transparent;
-        color: #15803d;
+        color: #00ff5e;
         border: 2px solid #15803d;
         box-shadow: 0 4px 15px rgba(21, 128, 61, 0.1);
       }
 
       .btn-secondary:hover {
-        background: #15803d;
+        background: #00fd5d;
         color: white;
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(21, 128, 61, 0.3);
@@ -418,7 +418,7 @@
         font-size: 3rem;
         font-weight: 900;
         margin-bottom: 4rem;
-        color: #15803d;
+        color: #00ff5e;
         text-shadow: 0 2px 4px rgba(21, 128, 61, 0.1);
       }
 
@@ -432,7 +432,7 @@
       .about-text h3 {
         font-size: 1.8rem;
         margin-bottom: 1rem;
-        color: #2e7d32;
+        color: #01ff0d;
       }
 
       .about-text p {
@@ -560,7 +560,7 @@
 
       .step h3 {
         margin-bottom: 1rem;
-        color: #2e7d32;
+        color: #00ff0d;
       }
 
       /* Enhanced app download section with premium gradient */
@@ -597,7 +597,7 @@
       }
 
       .app-btn {
-        background: #2e7d32;
+        background: #00fc0d;
         color: white;
         padding: 12px 24px;
         border-radius: 10px;
@@ -684,7 +684,7 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 600;
-        color: #2e7d32;
+        color: #02fa0e;
       }
 
       .form-group input,
@@ -727,11 +727,76 @@
       }
 
       /* Footer */
-      footer {
-        background: #2e7d32;
+      .footer {
+        background: #166534;
+        color: rgb(255, 255, 255);
+        padding: 3rem 0;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3,
+      .footer-section h4 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .footer-section p {
+        color: #ffffff;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links button {
+        background: none;
+        border: none;
+        color: #bbf7d0;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links button:hover {
         color: white;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: #15803d;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .social-link:hover {
+        background: #166534;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #15803d;
+        padding-top: 2rem;
         text-align: center;
-        padding: 2rem 0;
+        color: #bbf7d0;
       }
 
       /* Enhanced animations with more sophisticated movement */
@@ -772,6 +837,8 @@
           width: 100%;
           background: white;
           flex-direction: column;
+          justify-content: center;
+          align-items: center;
           padding: 1rem 0;
           border-top: 2px solid #2e7d32;
         }
@@ -823,6 +890,15 @@
         .section-title {
           font-size: 2rem;
         }
+        .footer-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
     </style>
   </head>
@@ -835,7 +911,7 @@
         /></a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#about">About Us</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -881,7 +957,6 @@
         </div>
       </div>
     </section>
-
     <!-- About Section -->
     <section class="about" id="about">
       <div class="container">
@@ -1086,16 +1161,104 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
       <div class="container">
-        <p>
-          &copy; 2025 TrioMart. All rights reserved. | Fresh Fruits & Vegetables
-          Delivered Daily
-        </p>
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div
+              class="flex items-center space-x-3"
+              style="margin-bottom: 1rem"
+            >
+              <img src="./image.png" alt="" srcset="" height="60" />
+            </div>
+            <p>
+              Fresh fruits and vegetables delivered to your doorstep with love
+              and care.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li>
+                <a
+                  href="./index.html"
+                  style="text-decoration: none; color: white; font-size: 14px"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#about"
+                  style="text-decoration: none; color: white; font-size: 14px"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#process"
+                  style="text-decoration: none; color: white; font-size: 14px"
+                  >Process</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#contact"
+                  style="text-decoration: none; color: white; font-size: 14px"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Services</h4>
+            <ul class="footer-links">
+              <li>Fresh Fruits</li>
+              <li>Organic Vegetables</li>
+              <li>Same-day Delivery</li>
+              <li>Bulk Orders</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <div class="social-link">
+                <i data-lucide="heart"></i>
+              </div>
+              <div class="social-link">
+                <i data-lucide="users"></i>
+              </div>
+              <div class="social-link">
+                <i data-lucide="trending-up"></i>
+              </div>
+            </div>
+            <div class="terms" style="margin-top: 20px">
+              <a
+                href="./termsandconditions.html"
+                style="text-decoration: none; color: white"
+                >Terms and Conditions</a
+              >
+              <br />
+              <a
+                href="./privacy-policy.html"
+                style="text-decoration: none; color: white"
+                >Privacy Policy</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 TrioMart. All rights reserved. | Fresh Fruits &
+            Vegetables Delivered Daily
+          </p>
+        </div>
       </div>
     </footer>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
+      lucide.createIcons();
       // Mobile menu toggle
       const mobileMenu = document.getElementById("mobileMenu");
       const navLinks = document.getElementById("navLinks");
@@ -1192,4 +1355,3 @@
     </script>
   </body>
 </html>
-
